@@ -1,0 +1,25 @@
+/* src/app/record-form/record-form.component.css */
+.container {
+  max-width: 800px;
+  margin-top: 2rem;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+.needs-validation {
+  position: relative;
+}
+
+  .needs-validation .form-control:invalid {
+    border-color: #dc3545;
+  }
+
+  .needs-validation .form-control:valid {
+    border-color: #28a745;
+  }

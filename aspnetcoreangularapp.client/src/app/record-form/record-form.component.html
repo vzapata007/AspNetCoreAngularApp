@@ -1,0 +1,33 @@
+<!-- src/app/record-form/record-form.component.html -->
+
+<div class="container mt-4">
+  <h2>Record Form</h2>
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required [(ngModel)]="record.name" name="name" #name="ngModel" class="form-control">
+      <div *ngIf="name.errors?.['required']" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="description">Description:</label>
+      <textarea id="description" required [(ngModel)]="record.description" name="description" #description="ngModel" class="form-control"></textarea>
+      <div *ngIf="description.errors?.['required']" class="text-danger">
+        Description is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+
+  <h3 class="mt-4">Records List</h3>
+  <ul class="list-group">
+    <li *ngFor="let record of records" class="list-group-item">
+      {{ record.name }} - {{ record.description }}
+      <button class="btn btn-warning btn-sm float-right ml-2" (click)="editRecord(record)">Edit</button>
+      <button class="btn btn-danger btn-sm float-right" (click)="deleteRecord(record.id!)">Delete</button>
+    </li>
+  </ul>
+</div>
